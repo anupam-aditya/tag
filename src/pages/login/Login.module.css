@@ -1,0 +1,129 @@
+@import "../../App.css";
+
+.container {
+	background-color: var(--color-grad-black);
+	/* height: 100vh; */
+	width: 100%;
+}
+
+.project-heading {
+	background: var(--background-gradial);
+	background-clip: content-box;
+	font-size: var(--text-size-heading);
+	font-weight: 600;
+	margin: 0;
+	padding: 3rem 0 0 9.7rem;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	width: fit-content;
+}
+
+.login-heading-section {
+	text-align: center;
+	width: 100%;
+}
+
+.login-main-section {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 490px;
+	margin: 4rem auto 0;
+	width: 392px;
+	gap: 30px;
+}
+
+.login-heading {
+	color: var(--color-white);
+	font-size: var(--text-size-heading);
+	margin-top: var(--zero-value);
+	margin-bottom: var(--zero-value);
+}
+
+.login-subheading {
+	color: var(--color-white-body);
+	margin-top: 4px;
+}
+
+.d-flex {
+	display: flex;
+	flex-direction: column;
+}
+
+.login-form-section {
+	width: 100%;
+}
+
+.inputLabel {
+	color: var(--color-white);
+	font-size: var(--text-size-body);
+	margin-bottom: 0.7rem;
+}
+
+.email-input {
+	margin-bottom: 0.7rem;
+}
+
+.input {
+	background: inherit;
+	border: 1px solid var(--color-grey);
+	border-radius: 5px;
+	color: var(--color-white-body);
+	font-family: "Poppins", sans-serif;
+	height: 1.3rem;
+	padding: 10px 10px 10px 14px;
+	outline: none;
+}
+
+.password-toggle {
+	color: white;
+	cursor: pointer;
+	margin: -37px 95%;
+	width: fit-content;
+}
+
+.forgot-password-text {
+	color: var(--color-white-body);
+	cursor: pointer;
+	margin-top: 4.3rem;
+	text-align: right;
+	width: -webkit-fill-available;
+}
+
+.login-button {
+	background: var(--background-gradial);
+	border: none;
+	border-radius: 5px;
+	color: white;
+	height: 2.7rem;
+	width: -webkit-fill-available;
+	font-size: var(--font-size-body);
+	font-family: "Poppins", sans-serif;
+}
+
+.login-consent-section {
+	padding: 0 10px;
+	text-align: center;
+}
+
+.login-consent-text {
+	color: var(--color-white-body);
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.login-consent-links{
+	color: var(--color-white);
+	text-decoration: none;
+}
+
+.register-text{
+	color: var(--color-white);
+	font-size: var(--font-size-body);
+	margin-bottom: 8px;
+}
+
+.register-link{
+	color: var(--color-red);
+	text-decoration: none;
+}
