@@ -1,25 +1,48 @@
 import React, { createContext, useState, useContext } from "react";
+import {
+	loginService,
+	logoutService,
+	registerService,
+} from "../services/authServices";
 
-const AppStateContext = createContext();
+export const AuthContext = createContext({
+	currentUser: null,
+	login: () => {},
+	logout: () => {},
+	register: () => {},
+});
 
-export function useAppState() {
-	return useContext(AppStateContext);
+export function useAuth() {
+	return useContext(AuthContext);
 }
 
-export function AppStateProvider({ children }) {
-	const [theme, setTheme] = useState("light");
+export function AuthProvider({ children }) {
+	const [currentUser, setCurrentUser] = useState(null);
 
-	const toggleTheme = () =>
-		setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+	async function login(data) {
+		const user = await loginService(data);
+		console.log(user);
+		setCurrentUser(user);
+		console.log(currentUser);
+	}
+
+	function logout() {
+		// Call to the actual logout service
+		logoutService();
+		setCurrentUser(null);
+	}
+
+	async function register(data) {
+		const value = await registerService(data);
+		return value;
+	}
 
 	const value = {
-		theme,
-		toggleTheme,
+		user: currentUser,
+		userLogin: login,
+		userLogout: logout,
+		userRegister: register,
 	};
 
-	return (
-		<AppStateContext.Provider value={value}>
-			{children}
-		</AppStateContext.Provider>
-	);
+	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 import SideNav from "./pages/global/sidebar/SideNav";
 import Dashboard from "./pages/dashboard/Dashboard";
 import AdAnalysis from "./pages/adAnalysis/AdAnalysis";
@@ -16,28 +17,38 @@ import { SidenavProvider } from "./pages/global/sidebar/sidenavContext";
 import Privacy from "./pages/privacy/Privacy";
 import Terms from "./pages/terms/Terms";
 import Register from "./pages/register/Register";
+import { useAuth } from "./store/AuthContext";
+
 function App() {
+	const { user, userLogin, userLogout, userRegister } = useAuth();
+	// console.log(user);
 	return (
-		<div className="App">
+		<div className="App" style={{ display: "flex" }}>
 			<BrowserRouter>
-				<Login />
-				{/* <SidenavProvider>
-					<Routes>
-						<Route path="/" element={<Dashboard />} />
-						<Route path="/ad_analysis" element={<AdAnalysis />} />
-						<Route path="/generated_ads" element={<GeneratedAds />} />
-						<Route path="/ad_edit" element={<AdEdit />} />
-						<Route path="/ad_review" element={<AdReview />} />
-						<Route path="/publish" element={<Publish />} />
-						<Route path="/ad_structure" element={<AdStructure />} />
-						<Route path="/integrations" element={<Integrations />} />
-						<Route path="/settings" element={<Settings />} />
-						<Route path="/login" element={<Login />} />
-						<Route path="/privacy" element={<Privacy />} />
-						<Route path="/terms" element={<Terms />} />
-						<Route path="/register" element={<Register/>} />
-					</Routes>
-				</SidenavProvider> */}
+				{user && <SideNav />}
+				<Routes>
+					<Route path="/ad_analysis" element={<AdAnalysis />} />
+					<Route path="/generated_ads" element={<GeneratedAds />} />
+					<Route path="/ad_edit" element={<AdEdit />} />
+					<Route path="/ad_review" element={<AdReview />} />
+					<Route path="/publish" element={<Publish />} />
+					<Route path="/ad_structure" element={<AdStructure />} />
+					<Route path="/integrations" element={<Integrations />} />
+					<Route path="/settings" element={<Settings />} />
+					{/* <Route
+						path="/"
+						element={user ? <Dashboard /> : <Login login={userLogin} />}
+					/> */}
+					<Route
+						path="/"
+						element={
+							user ? <Dashboard /> : <Register register={userRegister} />
+						}
+					/>
+					<Route path="/privacy" element={<Privacy />} />
+					<Route path="/terms" element={<Terms />} />
+					{/* <Route path="/register" element={<Register />} /> */}
+				</Routes>
 			</BrowserRouter>
 		</div>
 	);

@@ -116,7 +116,7 @@ const SideNav = (props) => {
 					<Menu sx={{ gap: "10px" }}>
 						<Item
 							title="Dashboard"
-							to="/"
+							to="/dashboard"
 							icon={<RxDashboard />}
 							selected={selected}
 							setSelected={setSelected}
@@ -181,14 +181,6 @@ const SideNav = (props) => {
 						<Item
 							title="Settings"
 							to="/settings"
-							icon={<BiCog />}
-							selected={selected}
-							setSelected={setSelected}
-							navigate={navigate}
-						/>
-						<Item
-							title="Login"
-							to="/Login"
 							icon={<BiCog />}
 							selected={selected}
 							setSelected={setSelected}

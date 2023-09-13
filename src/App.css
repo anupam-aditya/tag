@@ -1,19 +1,21 @@
 :root {
+	--background-gradial: linear-gradient(
+		to right,
+		var(--color-violet) 50%,
+		var(--color-red)
+	);
 	--color-red: #dc2430;
 	--color-white: #ffffff;
 	--color-violet: #7b4397;
 	--color-grad-black: #120a17;
 	--color-white-body: #b9b9b9;
 	--color-grey: #29262c;
-	--background-gradial: linear-gradient(
-		to right,
-		var(--color-violet) 50%,
-		var(--color-red)
-	);
+	--margin-left: 9.7rem;
 	--text-size-heading: 2rem;
 	--text-size-body: 1rem;
 	--zero-value: 0;
 }
 html {
 	font-family: "Poppins", sans-serif;
+	background: var(--color-grad-black);
 }
