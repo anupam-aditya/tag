@@ -1,21 +1,42 @@
 :root {
 	--background-gradial: linear-gradient(
 		to right,
-		var(--color-violet) 50%,
-		var(--color-red)
+		var(--color-violet) 0%,
+		var(--color-red) 100%
 	);
 	--color-red: #dc2430;
 	--color-white: #ffffff;
 	--color-violet: #7b4397;
 	--color-grad-black: #120a17;
 	--color-white-body: #b9b9b9;
+	--color-background: #211627;
 	--color-grey: #29262c;
-	--margin-left: 9.7rem;
-	--text-size-heading: 2rem;
-	--text-size-body: 1rem;
+	--color-grad-accent: #e7e6e8;
+	--font-family: "Poppins", sans-serif;
+	--font-weight-light: 300;
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-semi-bold: 600;
+	--font-weight-bold: 700;
+	--height-input: 40px;
+	--line-height-h3: 28px;
+	--line-height-h6: 26px;
+	--line-height-body: 24px;
+	--margin-left: 140px;
+	--padding-container: 17px 20px 20px 20px;
+	--text-size-heading: 30px;
+	--text-size-body: 14px;
+	--text-size-h3: 18px;
+	--text-size-h6: 16px;
+	--text-size-display: 26px;
+	--text-size-h5: 12px;
 	--zero-value: 0;
 }
 html {
 	font-family: "Poppins", sans-serif;
 	background: var(--color-grad-black);
+}
+.App {
+	max-width: 1440px;
+	margin: auto;
 }

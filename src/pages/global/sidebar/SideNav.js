@@ -27,7 +27,7 @@ import { tokens } from "../../../theme";
 import { IconContext } from "react-icons";
 import { FaBeer } from "react-icons/fa";
 import { RiPencilLine } from "react-icons/ri";
-import { BiCog } from "react-icons/bi";
+import { BiCog, BiLogOut } from "react-icons/bi";
 import { RxDashboard } from "react-icons/rx";
 import { useTheme, Box, Typography, IconButton } from "@mui/material";
 // Import sidebar css from react-pro-sidebar module and our custom css.
@@ -35,7 +35,7 @@ import { useTheme, Box, Typography, IconButton } from "@mui/material";
 // import "react-pro-sidebar/dist/css/styles.css";
 // DC2430
 // 7B4397
-import "./Sidebar.css";
+import classes from "./Sidebar.module.css";
 // Create a sidebar component for a sidebar at the left of the page. This component will be used in the App.js file.
 
 const Item = ({ title, to, icon, selected, setSelected, navigate }) => {
@@ -69,28 +69,40 @@ const SideNav = (props) => {
 	const colors = tokens(theme.palette);
 	const [selected, setSelected] = useState("Dashboard");
 	const navigate = useNavigate();
+	const logoutHandler = () => {
+		props.logout();
+	};
 	return (
-		<IconContext.Provider value={{ color: "#fff" }}>
+		<IconContext.Provider
+			value={{
+				color: "#fff",
+				height: "20px !important",
+				width: "20px !important",
+			}}
+		>
 			<Box
 				sx={{
 					backgroundColor: `${colors.black[500]}`,
-					width: "17%",
-					height: "100vh",
+					fontFamily: `"Poppins", sans-serif`,
+					fontSize: "16px",
+					width: "237px",
+					// height: "100vh",
 					"& .ps-sidebar-root": {
 						border: "none!important",
-						width: "100%",
+						width: "237px",
+						minWidth: "237px",
 					},
 					"& .ps-sidebar-container": {
 						backgroundColor: `${colors.black[500]}`,
-						height: "100vh",
+						// height: "100vh",
 					},
 					"& .ps-menu-button": {
 						// padding: "5px 35px 5px 20px !important",
 						color: `${colors.primary[500]}!important`,
 						textAlign: "left",
 						borderRadius: "4px",
-						width: "90%",
-						margin: "auto",
+						// width: "90%",
+						margin: " 0 14px 0 22px",
 						padding: "10px!important",
 					},
 					"& .menu-anchor": {
@@ -104,20 +116,34 @@ const SideNav = (props) => {
 						background: `linear-gradient(to right, ${colors.blueAccent[500]}, ${colors.redAccent[500]})!important`,
 						transition: "background 3s ease-in-out",
 					},
+					"& .ps-menu-root": {
+						margin: "30px 0 0 0",
+					},
 					"& .ps-menu-root>ul": {
 						display: "flex",
 						flexDirection: "column",
 						gap: "0.5rem!important",
 					},
+					"& .ps-menu-icon": {
+						marginRight: "0",
+						height: "24px",
+						width: "24px",
+						minWidth: "24px",
+					},
+					"& .ps-menu-label": {
+						fontWeight: "300",
+						marginLeft: "8px",
+						width: "fit-content",
+					},
 				}}
 			>
 				<Sidebar sx={{ width: "100%" }}>
-					{/* <SidebarHeader>VOLKANO AI</SidebarHeader> */}
+					<p className={classes["sidebar-heading"]}>Volkano AI</p>
 					<Menu sx={{ gap: "10px" }}>
 						<Item
 							title="Dashboard"
 							to="/dashboard"
-							icon={<RxDashboard />}
+							icon={<RxDashboard className={classes["sidebar-icon"]} />}
 							selected={selected}
 							setSelected={setSelected}
 							navigate={navigate}
@@ -125,7 +151,7 @@ const SideNav = (props) => {
 						<Item
 							title="Ad Analysis"
 							to="/ad_analysis"
-							icon={<RxDashboard />}
+							icon={<RxDashboard className={classes["sidebar-icon"]} />}
 							selected={selected}
 							setSelected={setSelected}
 							navigate={navigate}
@@ -133,7 +159,7 @@ const SideNav = (props) => {
 						<Item
 							title="Generated Ads"
 							to="/generated_ads"
-							icon={<RxDashboard />}
+							icon={<RxDashboard className={classes["sidebar-icon"]} />}
 							selected={selected}
 							setSelected={setSelected}
 							navigate={navigate}
@@ -141,7 +167,7 @@ const SideNav = (props) => {
 						<Item
 							title="Ad Edit"
 							to="/ad_edit"
-							icon={<RiPencilLine />}
+							icon={<RiPencilLine className={classes["sidebar-icon"]} />}
 							selected={selected}
 							setSelected={setSelected}
 							navigate={navigate}
@@ -149,7 +175,7 @@ const SideNav = (props) => {
 						<Item
 							title="Ad Review"
 							to="/ad_review"
-							icon={<RxDashboard />}
+							icon={<RxDashboard className={classes["sidebar-icon"]} />}
 							selected={selected}
 							setSelected={setSelected}
 							navigate={navigate}
@@ -157,7 +183,7 @@ const SideNav = (props) => {
 						<Item
 							title="Ready To Publish"
 							to="/publish"
-							icon={<RxDashboard />}
+							icon={<RxDashboard className={classes["sidebar-icon"]} />}
 							selected={selected}
 							setSelected={setSelected}
 							navigate={navigate}
@@ -165,7 +191,7 @@ const SideNav = (props) => {
 						<Item
 							title="Ad Structure Setup"
 							to="/ad_structure"
-							icon={<RxDashboard />}
+							icon={<RxDashboard className={classes["sidebar-icon"]} />}
 							selected={selected}
 							setSelected={setSelected}
 							navigate={navigate}
@@ -173,7 +199,7 @@ const SideNav = (props) => {
 						<Item
 							title="Integrations"
 							to="/integrations"
-							icon={<RxDashboard />}
+							icon={<RxDashboard className={classes["sidebar-icon"]} />}
 							selected={selected}
 							setSelected={setSelected}
 							navigate={navigate}
@@ -181,12 +207,20 @@ const SideNav = (props) => {
 						<Item
 							title="Settings"
 							to="/settings"
-							icon={<BiCog />}
+							icon={<BiCog className={classes["sidebar-icon"]} />}
 							selected={selected}
 							setSelected={setSelected}
 							navigate={navigate}
 						/>
 					</Menu>
+					<div className={classes["logout-button-section"]}>
+						<button
+							className={classes["logout-button"]}
+							onClick={logoutHandler}
+						>
+							<BiLogOut className={classes["logout-icon"]} /> Logout
+						</button>
+					</div>
 				</Sidebar>
 			</Box>
 		</IconContext.Provider>

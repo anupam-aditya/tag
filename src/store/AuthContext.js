@@ -21,8 +21,8 @@ export function AuthProvider({ children }) {
 
 	async function login(data) {
 		const user = await loginService(data);
-		console.log(user);
-		setCurrentUser(user);
+		console.log("user : ", user);
+		setCurrentUser(user.user);
 		console.log(currentUser);
 	}
 
@@ -34,6 +34,7 @@ export function AuthProvider({ children }) {
 
 	async function register(data) {
 		const value = await registerService(data);
+		setCurrentUser(value);
 		return value;
 	}
 

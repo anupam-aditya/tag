@@ -1,0 +1,53 @@
+@import "../App.css";
+
+.topbar-container {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.personal-text {
+	color: var(--color-white-body);
+	font-size: 26px;
+	font-family: var(--font-family);
+	margin: 0;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	font-weight: var(--font-weight-medium);
+}
+.welcome-text {
+	color: var(--color-white);
+	font-size: var(--text-size-body);
+	font-weight: var(--font-weight-regular);
+}
+
+.personal-info-section {
+	display: flex;
+	align-items: center;
+}
+
+.bell-icon {
+	color: var(--color-white);
+	height: 20px;
+	width: 20px;
+	margin: 2px;
+}
+.profile-picture {
+	height: 36px;
+	width: 36px;
+	border-radius: 50%;
+	margin-left: 20px;
+}
+.profile-name-text {
+	color: var(--color-white);
+	font-size: var(--text-size-body);
+	font-weight: var(--font-weight-regular);
+	margin: 0 0 0 10px;
+	font-family: var(--font-family);
+}
+.chevron-down-icon {
+	color: var(--color-white);
+	margin-left: 5px;
+}

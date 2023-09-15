@@ -22,8 +22,8 @@ export const loginService = async (data) => {
 		user_password: password,
 	};
 
-	// console.log(email);
-	// console.log(password);
+	console.log(email);
+	console.log(password);
 
 	try {
 		const response = await fetch(`http://127.0.0.1:5000/api/v1/login`, {
@@ -36,6 +36,7 @@ export const loginService = async (data) => {
 			body: JSON.stringify(user_data),
 		});
 		const data = await response.json();
+		console.log("data : ", data);
 		return data;
 	} catch (error) {
 		console.error("Error fetching data:", error);

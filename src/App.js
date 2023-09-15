@@ -25,29 +25,31 @@ function App() {
 	return (
 		<div className="App" style={{ display: "flex" }}>
 			<BrowserRouter>
-				{user && <SideNav />}
+				{user && <SideNav logout={userLogout} />}
 				<Routes>
-					<Route path="/ad_analysis" element={<AdAnalysis />} />
-					<Route path="/generated_ads" element={<GeneratedAds />} />
-					<Route path="/ad_edit" element={<AdEdit />} />
-					<Route path="/ad_review" element={<AdReview />} />
-					<Route path="/publish" element={<Publish />} />
-					<Route path="/ad_structure" element={<AdStructure />} />
-					<Route path="/integrations" element={<Integrations />} />
-					<Route path="/settings" element={<Settings />} />
-					{/* <Route
-						path="/"
-						element={user ? <Dashboard /> : <Login login={userLogin} />}
-					/> */}
-					<Route
-						path="/"
-						element={
-							user ? <Dashboard /> : <Register register={userRegister} />
-						}
-					/>
-					<Route path="/privacy" element={<Privacy />} />
-					<Route path="/terms" element={<Terms />} />
-					{/* <Route path="/register" element={<Register />} /> */}
+					{user ? (
+						<>
+							<Route path="/ad_analysis" element={<AdAnalysis />} />
+							<Route path="/generated_ads" element={<GeneratedAds />} />
+							<Route path="/ad_edit" element={<AdEdit />} />
+							<Route path="/ad_review" element={<AdReview />} />
+							<Route path="/publish" element={<Publish />} />
+							<Route path="/ad_structure" element={<AdStructure />} />
+							<Route path="/integrations" element={<Integrations />} />
+							<Route path="/settings" element={<Settings />} />
+							<Route path="/" element={<Dashboard />} />
+							<Route path="/privacy" element={<Privacy />} />
+							<Route path="/terms" element={<Terms />} />
+						</>
+					) : (
+						<>
+							<Route path="/" element={<Login login={userLogin} />} />
+							<Route
+								path="/register"
+								element={<Register register={userRegister} />}
+							/>
+						</>
+					)}
 				</Routes>
 			</BrowserRouter>
 		</div>
